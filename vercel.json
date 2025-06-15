@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/restaurant/:path*",
+      "destination": "https://your-qr-app.vercel.app/restaurant/:path*"
+    }
+  ]
+}
