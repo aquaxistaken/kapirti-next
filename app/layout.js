@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./globals.css"; // Global CSS'iniz
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +19,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-SOME_INTEGRITY_HASH" // Kendi integrity hash'inizi buraya yapıştırın
+        crossOrigin="anonymous" // C ve O büyük harf
+        referrerPolicy="no-referrer" // P büyük harf
+      />
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
