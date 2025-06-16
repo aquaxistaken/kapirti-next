@@ -224,7 +224,7 @@ p {
     transform: translateY(-5px);
 }
 
-/* Ad Card Stilleri (https://kapirti-eight.vercel.app/ ile aynı) */
+/* Ad Card Stilleri  */
 .hero-ad-card {
     position: relative;
     max-width: 950px;
@@ -340,7 +340,7 @@ p {
 @media (min-width: 768px) {
     .hero-section {
         flex-direction: row;
-        text-align: left;
+        text-align: center;
         justify-content: space-around;
         padding: var(--spacing-xxl) var(--spacing-md);
         gap: var(--spacing-xl);
@@ -463,16 +463,16 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
 @media (min-width: 768px) {
     .kapirti-nedir-section .content-wrapper {
         flex-direction: row;
-        text-align: left;
+        text-align: center;
         justify-content: space-between;
         align-items: center;
     }
     .kapirti-nedir-section .text-content {
         padding-right: var(--spacing-xl);
-        text-align: left;
+        text-align: center;
     }
     .kapirti-nedir-section .text-content h2 {
-        text-align: left;
+        text-align: center;
     }
     .kapirti-nedir-section .text-content p {
         margin: 0;
