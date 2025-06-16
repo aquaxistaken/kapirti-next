@@ -30,8 +30,8 @@ export default function Home() {
       <section className="hero-section" id="hero">
         <div className="container">
           <div className="hero-content">
-            <h1>Restoranınızın Menüsü, Dünyanın Her Dilinde!</h1>
-            <p>Kapırtı ile menünüzü dijitalleştirin, görsellerle ve 170 dilde herkese ulaştırın. Üstelik tamamen ücretsiz!</p>
+          <h1>Restoranınızın Menüsü, Dünyanın Her Dilinde!</h1>
+          <p>Kapırtı ile menünüzü dijitalleştirin, görsellerle ve 170 dilde herkese ulaştırın. Üstelik tamamen ücretsiz!</p>
             <div className="hero-buttons">
               <Link href="https://play.google.com/store/apps/details?id=com.kapirti.video_food_delivery_shopping&hl=tr&pli=1" className="btn primary-btn">Uygulamayı İndir</Link>
               <Link href="#how-it-works" className="btn secondary-btn">Nasıl Çalışır?</Link>
