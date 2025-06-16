@@ -304,19 +304,20 @@ p {
     color: var(--primary-color);
 }
 
+/* Bu kısım Next.js Image'in kendisi değil, ad kartının arka plan görseli gibi davranıyor olabilir. */
+/* Eğer Next.js Image bileşeni kullanılıyorsa, onu da sarmalayıcı div içine almalısınız. */
 .ad-card-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Sığdırma şeklini belirler */
     opacity: 0.2;
     z-index: 0;
 }
 
-/* Hero Image Stili (Kaldırıldı, https://kapirti-eight.vercel.app/ ile uyumlu değil) */
-/* Next.js Image için yeni stiller */
+/* Next.js Image için sarmalayıcı stilleri */
 .hero-image-wrapper {
   position: relative; /* fill prop'u için MUTLAKA relative olmalı */
   width: 100%; /* Kapsayıcı div'in genişliği */
@@ -328,9 +329,11 @@ p {
   margin: 0 auto; /* Eğer flex konteynerde değilse ortalamak için */
 }
 
+/* Next.js Image bileşenine uygulanan sınıf */
 .hero-main-image {
   object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır */
-  /* object-fit: cover; // Eğer kapsayıcıyı doldurmasını ve kesilmesini isterseniz deneyin */
+  /* Eğer resmin kapsayıcıyı doldurmasını ve kesilmesini isterseniz: */
+  /* object-fit: cover; */
   /* object-position: center; // Varsayılan, gerekirse değiştirebilirsiniz */
 }
 
@@ -436,24 +439,26 @@ p {
     padding: var(--spacing-sm);
 }
 
-/* Bu kısım artık direkt img etiketi kullanmadığınız için geçerli değildir,
-   eğer buraya Next.js Image eklerseniz, Image sarmalayıcı ve Image stilini
-   yukarıdaki gibi oluşturmanız gerekir.
-.kapirti-nedir-section .image-gallery img {
+/* Kapırtı Nedir Section - Next.js Image Wrapper */
+.kapirti-nedir-image-wrapper { /* Yeni sarmalayıcı sınıfı */
+    position: relative;
     width: 100%;
-    height: auto;
+    height: 300px; /* Yüksekliği ayarlayın */
+    overflow: hidden;
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-medium);
     transition: transform var(--transition-speed) var(--transition-ease), box-shadow var(--transition-speed) var(--transition-ease);
-    object-fit: cover;
-    display: block;
 }
 
-.kapirti-nedir-section .image-gallery img:hover {
+.kapirti-nedir-image-wrapper:hover {
     transform: scale(1.02);
     box-shadow: var(--shadow-strong);
 }
-*/
+
+.kapirti-nedir-image { /* Next.js Image bileşenine uygulanacak sınıf */
+    object-fit: cover; /* Bu resimler için cover daha iyi olabilir */
+}
+
 
 /* Kapırtı Nedir Section Responsive Adjustments */
 @media (min-width: 768px) {
@@ -474,20 +479,21 @@ p {
         margin: 0;
     }
     .kapirti-nedir-section .image-gallery {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Eğer iki görseli üst üste kullanıyorsanız bu kuralı dikkatli kullanın */
         padding: 0;
     }
-    /* Overlay effect for two images */
-    .kapirti-nedir-section .image-gallery img:first-child {
+    /* Overlay effect for two images - Sadece bir resim varsa bu kısmı kullanmayın */
+    /*
+    .kapirti-nedir-section .image-gallery .kapirti-nedir-image-wrapper:first-child {
         position: relative;
         z-index: 2;
     }
-    /* Uncomment and add a second img in HTML if needed
-    .kapirti-nedir-section .image-gallery img:nth-child(2) {
+    .kapirti-nedir-section .image-gallery .kapirti-nedir-image-wrapper:nth-child(2) {
         position: absolute;
         top: 20%;
         left: 20%;
         width: 80%;
+        height: 80%; // İkinci resmin yüksekliğini de ayarlayın
         box-shadow: var(--shadow-medium);
         transform: rotate(-5deg);
         z-index: 1;
@@ -635,10 +641,17 @@ p {
   overflow: hidden;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-strong);
+  transition: transform var(--transition-speed) ease; /* Hover efekti için */
 }
+
+.how-it-works-image-wrapper:hover { /* Wrapper'a hover efekti verdik */
+  transform: scale(1.005);
+}
+
 
 .how-it-works-main-image {
   object-fit: cover; /* Bu resim için cover daha iyi olabilir */
+  /* object-position: center; // Varsayılan */
 }
 
 /* How It Works Section Responsive Adjustments */
@@ -728,11 +741,13 @@ p {
   height: 90px;
   border-radius: 50%;
   overflow: hidden;
-  margin: 0 auto var(--spacing-sm) auto; /* Ortalamak ve alt boşluk vermek için */
+  margin-bottom: var(--spacing-sm); /* Testimonial Card içinde olduğu için margin auto kaldırdım */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0; /* Küçülmesini engellemek için */
+  z-index: 1; /* Alıntı işaretinin üzerinde olması için */
 }
 
-.restaurant-logo { /* Image bileşenine uygulanan sınıf */
+.restaurant-logo { /* Next.js Image bileşenine uygulanan sınıf */
     object-fit: cover; /* Logolar için genellikle cover daha iyidir */
 }
 
@@ -769,6 +784,11 @@ p {
   overflow: hidden;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-strong);
+  transition: transform var(--transition-speed) ease; /* Hover efekti için */
+}
+
+.testimonial-main-image-wrapper:hover { /* Wrapper'a hover efekti verdik */
+  transform: scale(1.005);
 }
 
 .testimonial-full-image {
@@ -869,6 +889,9 @@ p {
   .hero-image-wrapper {
     height: 250px; /* Küçük ekranlar için Hero görsel yüksekliği */
   }
+  .kapirti-nedir-image-wrapper {
+      height: 250px; /* Küçük ekranlar için Kapırtı Nedir görsel yüksekliği */
+  }
   .how-it-works-image-wrapper {
     height: 350px; /* Küçük ekranlar için Nasıl Çalışır görsel yüksekliği */
   }
@@ -884,6 +907,9 @@ p {
 @media (max-width: 480px) {
   .hero-image-wrapper {
     height: 200px; /* Daha küçük ekranlar için Hero görsel yüksekliği */
+  }
+  .kapirti-nedir-image-wrapper {
+      height: 200px; /* Daha küçük ekranlar için Kapırtı Nedir görsel yüksekliği */
   }
   .how-it-works-image-wrapper {
     height: 280px; /* Daha küçük ekranlar için Nasıl Çalışır görsel yüksekliği */
