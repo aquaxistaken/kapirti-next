@@ -9,13 +9,15 @@ export default function Home() {
 
   // FAQ Toggle Fonksiyonu
   const toggleFaq = (index) => {
-    setActiveFai(activeFaq === index ? null : index);
+    setActiveFaq(activeFaq === index ? null : index); // Buradaki yazım hatası düzeltildi!
   };
 
   // Hero Animasyonu
   useEffect(() => {
     const heroContent = document.querySelector('.hero-content');
-    if (heroContent) heroContent.style.opacity = '1';
+    if (heroContent) {
+      heroContent.style.opacity = '1';
+    }
   }, []);
 
   // FAQ Verileri
@@ -41,15 +43,16 @@ export default function Home() {
           </div>
           {/* Buradaki birleşme çakışması çözüldü. Sadece görsel bırakıldı. */}
           <div className="hero-ad-card">
-            <Image
-              src="/giris.png" // Public klasöründeki resmin yolu
-              alt="Giriş Sayfası Görseli"
-              layout="responsive" // Next.js 13+ için 'fill' veya CSS ile boyutlandırma daha yaygın olsa da, 'responsive' de hala çalışır.
-              width={500} // Resmin orijinal genişliğini veya yaklaşığını girin
-              height={300} // Resmin orijinal yüksekliğini veya yaklaşığını girin
-              objectFit="contain" // Resmin oranlarını koruyarak alanı kaplamasını sağlar
-              className="hero-image" // CSS için sınıf
-            />
+            {/* Next.js Image kullanımı iyileştirildi */}
+            <div style={{ position: 'relative', width: '100%', height: '300px' /* veya istediğiniz boyutlar */ }}>
+              <Image
+                src="/giris.png" // Public klasöründeki resmin yolu
+                alt="Giriş Sayfası Görseli"
+                fill // Resmin üst elemanı doldurmasını sağlar
+                className="hero-image" // CSS için sınıf, object-fit ve diğer stil tanımları burada olmalı
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Responsive için boyut ipuçları
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -139,7 +142,10 @@ export default function Home() {
             </div>
           </div>
           <div className="how-it-works-image">
-            <Image src="/photo2.png" alt="Nasıl Çalışır Görseli" width={900} height={600} />
+            {/* Next.js Image kullanımı iyileştirildi */}
+            <div style={{ position: 'relative', width: '100%', height: '600px' /* veya istediğiniz boyutlar */ }}>
+              <Image src="/photo2.png" alt="Nasıl Çalışır Görseli" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw" />
+            </div>
           </div>
         </div>
       </section>
@@ -151,23 +157,35 @@ export default function Home() {
           <p className="section-description">Türkiye’den Tayland’a, Kapırtı’yı kullanan işletmelerin yorumları ve başarı hikayeleri.</p>
           <div className="testimonials-grid">
             <div className="testimonial-card">
-              <img src="/restoran1.webp" alt="Lezzetli Durak Logosu" className="restaurant-logo" width={90} height={90} />
+              {/* img yerine Next.js Image kullanımı iyileştirildi */}
+              <div style={{ position: 'relative', width: '90px', height: '90px', margin: '0 auto 15px' }}>
+                <Image src="/restoran1.webp" alt="Lezzetli Durak Logosu" className="restaurant-logo" fill sizes="90px" />
+              </div>
               <blockquote>"Kapırtı sayesinde menümüzü güncel tutmak çok kolaylaştı ve yabancı müşterilerimizden harika geri dönüşler alıyoruz. Gerçekten işimizi büyüttü!"</blockquote>
               <span className="author">- Ayşe Yılmaz, Lezzetli Durak Restoranı Sahibi</span>
             </div>
             <div className="testimonial-card">
-              <img src="/restoran2.webp" alt="Şehrin Tadı Logosu" className="restaurant-logo" width={90} height={90} />
+              {/* img yerine Next.js Image kullanımı iyileştirildi */}
+              <div style={{ position: 'relative', width: '90px', height: '90px', margin: '0 auto 15px' }}>
+                <Image src="/restoran2.webp" alt="Şehrin Tadı Logosu" className="restaurant-logo" fill sizes="90px" />
+              </div>
               <blockquote>"Dijital menüye geçmek istediğimizde Kapırtı en hızlı ve ücretsiz çözüm oldu. Menüye fotoğraf ekleme özelliği sayesinde satışlarımız arttı."</blockquote>
               <span className="author">- Mehmet Demir, Şehrin Tadı Cafe Yöneticisi</span>
             </div>
             <div className="testimonial-card">
-              <img src="/restoran3.jpeg" alt="Deniz Manzarası Logosu" className="restaurant-logo" width={90} height={90} />
+              {/* img yerine Next.js Image kullanımı iyileştirildi */}
+              <div style={{ position: 'relative', width: '90px', height: '90px', margin: '0 auto 15px' }}>
+                <Image src="/restoran3.jpeg" alt="Deniz Manzarası Logosu" className="restaurant-logo" fill sizes="90px" />
+              </div>
               <blockquote>"Özellikle turistik bölgemiz için çok dilli menü olmazsa olmazdı. Kapırtı bu ihtiyacımızı mükemmel bir şekilde karşıladı."</blockquote>
               <span className="author">- Zeynep Can, Deniz Manzarası Balık Restaurantı</span>
             </div>
           </div>
           <div className="testimonial-main-image">
-            <Image src="/photo1.png" alt="Testimonials Görseli" width={1000} height={600} />
+            {/* Next.js Image kullanımı iyileştirildi */}
+            <div style={{ position: 'relative', width: '100%', height: '600px' /* veya istediğiniz boyutlar */ }}>
+              <Image src="/photo1.png" alt="Testimonials Görseli" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw" />
+            </div>
           </div>
         </div>
       </section>
@@ -238,8 +256,8 @@ export default function Home() {
           <div className="footer-social">
             <h4>Bizi Takip Edin</h4>
             <div className="social-icons">
-              <a href="https://www.youtube.com/@Kapirti" target='_blank'><i className="fab fa-youtube"></i></a>
-              <a href="https://www.instagram.com/farklidillerdeonlinemenu/#" target='_blank'><i className="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com/@Kapirti" target='_blank' rel="noopener noreferrer"><i className="fab fa-youtube"></i></a>
+              <a href="https://www.instagram.com/farklidillerdeonlinemenu/#" target='_blank' rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
             </div>
           </div>
           <div className="footer-contact">
