@@ -26,32 +26,32 @@ export default function Home() {
 
   return (
     <div>
+      
       {/* Hero Section */}
       <section className="hero-section" id="hero">
-        <div className="container">
-          <div className="hero-content">
+        <div className="hero-content">
           <h1>Restoranınızın Menüsü, Dünyanın Her Dilinde!</h1>
           <p>Kapırtı ile menünüzü dijitalleştirin, görsellerle ve 170 dilde herkese ulaştırın. Üstelik tamamen ücretsiz!</p>
-            <div className="hero-buttons">
-              <Link href="https://play.google.com/store/apps/details?id=com.kapirti.video_food_delivery_shopping&hl=tr&pli=1" className="btn primary-btn">Uygulamayı İndir</Link>
-              <Link href="#how-it-works" className="btn secondary-btn">Nasıl Çalışır?</Link>
-            </div>
-            <p className="hero-subtext">Kapırtı ile menünüzü dijitalleştirin, görsellerle ve 170 dilde herkese ulaştırın. Üstelik tamamen ücretsiz!</p>
+          <div className="hero-buttons">
+            <Link href="https://play.google.com/store/apps/details?id=com.kapirti.video_food_delivery_shopping&hl=tr&pli=1" className="btn primary-btn">Uygulamayı İndir</Link>
+            <Link href="#how-it-works" className="btn secondary-btn">Nasıl Çalışır?</Link>
           </div>
-          <div className="hero-ad-card">
-          
-            <div className="hero-image-wrapper"> 
-              <Image
-                src="/giris.png"
-                alt="Giriş Sayfası Görseli"
-                fill
-                className="hero-main-image" // Bu sınıfa object-fit vb. stiller verilecek
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
+          <p className="hero-subtext">Kapırtı ile menünüzü dijitalleştirin, görsellerle ve 170 dilde herkese ulaştırın. Üstelik tamamen ücretsiz!</p>
+        </div>
+
+        <div className="hero-ad-card">
+          <div className="hero-image-wrapper">
+            <Image
+              src="/giris.png"
+              alt="Giriş Sayfası Görseli"
+              fill
+              className="hero-main-image"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
           </div>
         </div>
       </section>
+
 
       {/* Kapırtı Nedir Section - Bu bölümde görsel yoktu, eklenmedi. */}
       <section className="kapirti-nedir-section" id="kapirti-nedir">

@@ -1465,3 +1465,88 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
     margin: 0 auto;
   }
 }
+
+/* === HERO SECTION DÜZENLEMESİ === */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-sm);
+  background: linear-gradient(135deg, var(--bg-hero-gradient-start), var(--bg-hero-gradient-end));
+  border-bottom-left-radius: var(--border-radius-lg);
+  border-bottom-right-radius: var(--border-radius-lg);
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-sm);
+}
+
+.hero-content p {
+  font-size: 1.125rem;
+  color: var(--text-color-light);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  margin-top: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.hero-subtext {
+  font-size: 0.9rem;
+  color: var(--text-color-light);
+  margin-top: var(--spacing-sm);
+}
+
+.hero-ad-card {
+  width: 100%;
+  max-width: 450px;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero-main-image {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Masaüstü için yatay hizalama */
+@media (min-width: 768px) {
+  .hero-section {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: var(--spacing-xxl) var(--spacing-md);
+  }
+
+  .hero-content {
+    flex: 1;
+    text-align: left;
+  }
+
+  .hero-buttons {
+    justify-content: flex-start;
+  }
+
+  .hero-ad-card {
+    flex: 1;
+  }
+}
