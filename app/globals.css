@@ -1341,9 +1341,8 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
   width: 100%;
 }
 
-/* === HERO SECTION PROFESYONEL DÜZENLEME === */
+/* === HERO SECTION – KAPIRTI EIGHT STİLİNDE PROFESYONEL DÜZENLEME === */
 
-/* Genel hero düzeni */
 .hero-section {
   display: flex;
   flex-wrap: wrap;
@@ -1358,9 +1357,8 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
   overflow: hidden;
 }
 
-/* Hero içeriği */
 .hero-content {
-  flex: 1 1 500px;
+  flex: 1 1 400px;
   max-width: 600px;
   z-index: 1;
   position: relative;
@@ -1374,6 +1372,7 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
   color: var(--secondary-color);
   letter-spacing: -0.5px;
   margin-bottom: var(--spacing-sm);
+  text-align: inherit;
 }
 
 .hero-content p {
@@ -1395,10 +1394,9 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
   margin-bottom: var(--spacing-sm);
 }
 
-/* Görsel alanı */
 .hero-ad-card {
-  flex: 1 1 500px;
-  max-width: 600px;
+  flex: 1 1 400px;
+  max-width: 650px;
   margin: 0 auto;
 }
 
@@ -1413,12 +1411,12 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
 }
 
 .hero-main-image {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 
-/* Mobil cihazlarda ortalanmış ve stacked yapı */
-@media (max-width: 768px) {
+/* === Mobil görünüm için düzenleme === */
+@media (max-width: 767px) {
   .hero-section {
     flex-direction: column;
     padding: var(--spacing-lg) var(--spacing-sm);
@@ -1426,8 +1424,9 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
   }
 
   .hero-content {
-    text-align: center;
     max-width: 100%;
+    text-align: center;
+    margin: 0 auto var(--spacing-md);
   }
 
   .hero-content h1,
@@ -1445,9 +1444,9 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
   }
 
   .hero-image-wrapper {
-    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
     height: auto;
     aspect-ratio: 16 / 9;
-    margin: 0 auto;
   }
 }
