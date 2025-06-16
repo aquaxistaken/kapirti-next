@@ -59,9 +59,9 @@ html {
     --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.04);
 
     /* Other */
-    --border-radius-sm: 0.5rem;   /* 8px */
-    --border-radius-md: 1rem;     /* 16px */
-    --border-radius-lg: 1.5rem;   /* 24px */
+    --border-radius-sm: 0.5rem;    /* 8px */
+    --border-radius-md: 1rem;    /* 16px */
+    --border-radius-lg: 1.5rem;    /* 24px */
     --transition-speed: 0.4s; /* Slower and smoother transitions */
     --transition-ease: cubic-bezier(0.2, 0.8, 0.2, 1); /* Smooth cubic-bezier */
 }
@@ -331,10 +331,8 @@ p {
 
 /* Next.js Image bileşenine uygulanan sınıf */
 .hero-main-image {
-  object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır */
-  /* Eğer resmin kapsayıcıyı doldurmasını ve kesilmesini isterseniz: */
-  /* object-fit: cover; */
-  /* object-position: center; // Varsayılan, gerekirse değiştirebilirsiniz */
+  object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, boşluklar oluşabilir */
+  object-position: center; /* Görseli ortalar */
 }
 
 
@@ -456,7 +454,8 @@ p {
 }
 
 .kapirti-nedir-image { /* Next.js Image bileşenine uygulanacak sınıf */
-    object-fit: cover; /* Bu resimler için cover daha iyi olabilir */
+object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, boşluklar oluşabilir */
+  object-position: center; /* Görseli ortalar */
 }
 
 
@@ -650,8 +649,8 @@ p {
 
 
 .how-it-works-main-image {
-  object-fit: cover; /* Bu resim için cover daha iyi olabilir */
-  /* object-position: center; // Varsayılan */
+  object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, boşluklar oluşabilir */
+  object-position: center; /* Görseli ortalar */
 }
 
 /* How It Works Section Responsive Adjustments */
@@ -748,7 +747,8 @@ p {
 }
 
 .restaurant-logo { /* Next.js Image bileşenine uygulanan sınıf */
-    object-fit: cover; /* Logolar için genellikle cover daha iyidir */
+    object-fit: cover; /* Logolar için genellikle cover daha iyidir, yuvarlak kapsayıcıyı doldurur */
+    object-position: center; /* Logoyu ortalamak için */
 }
 
 
@@ -792,7 +792,8 @@ p {
 }
 
 .testimonial-full-image {
-  object-fit: cover; /* Bu resim için cover genellikle daha iyi durur */
+  object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, boşluklar oluşabilir */
+  object-position: center; /* Görseli ortalar */
 }
 
 
@@ -884,19 +885,19 @@ p {
     line-height: 1.7;
 }
 
-/* Responsive Adjustments for Images (eklendi) */
+/* Responsive Adjustments for Images (eklendi ve güncellendi) */
 @media (max-width: 768px) {
   .hero-image-wrapper {
-    height: 250px; /* Küçük ekranlar için Hero görsel yüksekliği */
+    height: 250px; /* Tablet ve küçük laptoplar için Hero görsel yüksekliği */
   }
   .kapirti-nedir-image-wrapper {
-      height: 250px; /* Küçük ekranlar için Kapırtı Nedir görsel yüksekliği */
+      height: 250px; /* Tablet ve küçük laptoplar için Kapırtı Nedir görsel yüksekliği */
   }
   .how-it-works-image-wrapper {
-    height: 350px; /* Küçük ekranlar için Nasıl Çalışır görsel yüksekliği */
+    height: 350px; /* Tablet ve küçük laptoplar için Nasıl Çalışır görsel yüksekliği */
   }
   .testimonial-main-image-wrapper {
-    height: 350px; /* Küçük ekranlar için Testimonial ana görsel yüksekliği */
+    height: 350px; /* Tablet ve küçük laptoplar için Testimonial ana görsel yüksekliği */
   }
   .restaurant-logo-wrapper {
       width: 70px;
@@ -906,16 +907,16 @@ p {
 
 @media (max-width: 480px) {
   .hero-image-wrapper {
-    height: 200px; /* Daha küçük ekranlar için Hero görsel yüksekliği */
+    height: 200px; /* Mobil cihazlar için Hero görsel yüksekliği */
   }
   .kapirti-nedir-image-wrapper {
-      height: 200px; /* Daha küçük ekranlar için Kapırtı Nedir görsel yüksekliği */
+      height: 200px; /* Mobil cihazlar için Kapırtı Nedir görsel yüksekliği */
   }
   .how-it-works-image-wrapper {
-    height: 280px; /* Daha küçük ekranlar için Nasıl Çalışır görsel yüksekliği */
+    height: 280px; /* Mobil cihazlar için Nasıl Çalışır görsel yüksekliği */
   }
   .testimonial-main-image-wrapper {
-    height: 280px; /* Daha küçük ekranlar için Testimonial ana görsel yüksekliği */
+    height: 280px; /* Mobil cihazlar için Testimonial ana görsel yüksekliği */
   }
   .restaurant-logo-wrapper {
       width: 60px;

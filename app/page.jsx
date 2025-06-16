@@ -14,11 +14,7 @@ export default function Home() {
   useEffect(() => {
     const heroContent = document.querySelector('.hero-content');
     if (heroContent) {
-      // Bu animasyon sadece bir kez çalışmalı.
-      // Opaklık zaten CSS'te 0 olarak ayarlandığı için,
-      // animasyon başladığında otomatik olarak 1'e geçecektir.
-      // Direkt olarak 1'e ayarlamak animasyonu iptal eder.
-      // heroContent.style.opacity = '1'; // Bu satırı kaldırdık
+      heroContent.style.opacity = '1';
     }
   }, []);
 
@@ -42,23 +38,22 @@ export default function Home() {
             </div>
             <p className="hero-subtext">Kapırtı ile menünüzü dijitalleştirin, görsellerle ve 170 dilde herkese ulaştırın. Üstelik tamamen ücretsiz!</p>
           </div>
-          {/* Hero Section Image */}
           <div className="hero-ad-card">
             {/* INLINE STİLİ KALDIRIP SADECE SINIF KULLANIYORUZ */}
-            <div className="hero-image-wrapper"> {/* Next.js Image için sarmalayıcı */}
+            <div className="hero-image-wrapper"> {/* Yeni bir sınıf eklendi */}
               <Image
                 src="/giris.png"
                 alt="Giriş Sayfası Görseli"
-                fill // Resmin kapsayıcı div'i doldurmasını sağlar
+                fill
                 className="hero-main-image" // Bu sınıfa object-fit vb. stiller verilecek
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Responsive için boyutlar
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Kapırtı Nedir Section - Bu bölümde görsel yoktu, buraya ekliyoruz */}
+      {/* Kapırtı Nedir Section - Bu bölümde görsel yoktu, eklenmedi. */}
       <section className="kapirti-nedir-section" id="kapirti-nedir">
         <div className="container">
           <h2>İşletmenizin Yeni Dijital Vitrini</h2>
@@ -66,7 +61,7 @@ export default function Home() {
             <div className="text-content">
               <p>Kapırtı, restoran ve kafe işletmeleri için modern bir menü çözümüdür. Menülerinizi dakikalar içinde oluşturun, QR kodu ile müşterilerinize sunun. Menülerinizi zengin görseller, alerjen/vegan bilgilerle ve çok dilli destekle herkesin anlayabileceği hale getirin.</p>
             </div>
-            <div className="ad-card"> {/* Bu ad-card Kapırtı Nedir bölümünde mi olmalı yoksa hero bölümünde mi? Mevcut yerinde bıraktım. */}
+            <div className="ad-card">
               <div className="ad-card-content">
                 <h3>Dijital Vitrini: Restoranınızın her zaman göz önünde.</h3>
                 <ul className="ad-features">
@@ -77,16 +72,6 @@ export default function Home() {
                   <li><span className="ticket-icon">🎟️</span> Elite Keyfini Ömür Boyu Yaşat</li>
                 </ul>
               </div>
-            </div>
-            {/* Kapırtı Nedir bölümüne görsel eklenmemişti, şimdi ekliyoruz */}
-            <div className="kapirti-nedir-image-wrapper">
-              <Image
-                src="/kapirti-nedir-image.png" // Buraya uygun bir görsel yolu girin
-                alt="Kapırtı Nedir Görseli"
-                fill
-                className="kapirti-nedir-image"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
-              />
             </div>
           </div>
         </div>
@@ -154,7 +139,7 @@ export default function Home() {
           </div>
           <div className="how-it-works-image">
             {/* INLINE STİLİ KALDIRIP SADECE SINIF KULLANIYORUZ */}
-            <div className="how-it-works-image-wrapper"> {/* Next.js Image için sarmalayıcı */}
+            <div className="how-it-works-image-wrapper"> {/* Yeni bir sınıf eklendi */}
               <Image src="/photo2.png" alt="Nasıl Çalışır Görseli" fill className="how-it-works-main-image" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw" />
             </div>
           </div>
@@ -168,34 +153,33 @@ export default function Home() {
           <p className="section-description">Türkiye’den Tayland’a, Kapırtı’yı kullanan işletmelerin yorumları ve başarı hikayeleri.</p>
           <div className="testimonials-grid">
             <div className="testimonial-card">
-              {/* Restaurant Logo */}
-              <div className="restaurant-logo-wrapper"> {/* Next.js Image için sarmalayıcı */}
+              {/* INLINE STİLİ KALDIRIP SADECE SINIF KULLANIYORUZ */}
+              <div className="restaurant-logo-wrapper"> {/* Yeni bir sınıf eklendi */}
                 <Image src="/restoran1.webp" alt="Lezzetli Durak Logosu" className="restaurant-logo" fill sizes="90px" />
               </div>
               <blockquote>"Kapırtı sayesinde menümüzü güncel tutmak çok kolaylaştı ve yabancı müşterilerimizden harika geri dönüşler alıyoruz. Gerçekten işimizi büyüttü!"</blockquote>
               <span className="author">- Ayşe Yılmaz, Lezzetli Durak Restoranı Sahibi</span>
             </div>
             <div className="testimonial-card">
-              {/* Restaurant Logo */}
-              <div className="restaurant-logo-wrapper"> {/* Next.js Image için sarmalayıcı */}
+              {/* INLINE STİLİ KALDIRIP SADECE SINIF KULLANIYORUZ */}
+              <div className="restaurant-logo-wrapper"> {/* Yeni bir sınıf eklendi */}
                 <Image src="/restoran2.webp" alt="Şehrin Tadı Logosu" className="restaurant-logo" fill sizes="90px" />
               </div>
               <blockquote>"Dijital menüye geçmek istediğimizde Kapırtı en hızlı ve ücretsiz çözüm oldu. Menüye fotoğraf ekleme özelliği sayesinde satışlarımız arttı."</blockquote>
               <span className="author">- Mehmet Demir, Şehrin Tadı Cafe Yöneticisi</span>
             </div>
             <div className="testimonial-card">
-              {/* Restaurant Logo */}
-              <div className="restaurant-logo-wrapper"> {/* Next.js Image için sarmalayıcı */}
+              {/* INLINE STİLİ KALDIRIP SADECE SINIF KULLANIYORUZ */}
+              <div className="restaurant-logo-wrapper"> {/* Yeni bir sınıf eklendi */}
                 <Image src="/restoran3.jpeg" alt="Deniz Manzarası Logosu" className="restaurant-logo" fill sizes="90px" />
               </div>
               <blockquote>"Özellikle turistik bölgemiz için çok dilli menü olmazsa olmazdı. Kapırtı bu ihtiyacımızı mükemmel bir şekilde karşıladı."</blockquote>
               <span className="author">- Zeynep Can, Deniz Manzarası Balık Restaurantı</span>
             </div>
           </div>
-          {/* Testimonials Section Ana Görseli */}
           <div className="testimonial-main-image">
             {/* INLINE STİLİ KALDIRIP SADECE SINIF KULLANIYORUZ */}
-            <div className="testimonial-main-image-wrapper"> {/* Next.js Image için sarmalayıcı */}
+            <div className="testimonial-main-image-wrapper"> {/* Yeni bir sınıf eklendi */}
               <Image src="/photo1.png" alt="Testimonials Görseli" fill className="testimonial-full-image" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw" />
             </div>
           </div>
