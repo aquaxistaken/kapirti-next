@@ -39,8 +39,8 @@ export default function Home() {
             <p className="hero-subtext">Kapırtı ile menünüzü dijitalleştirin, görsellerle ve 170 dilde herkese ulaştırın. Üstelik tamamen ücretsiz!</p>
           </div>
           <div className="hero-ad-card">
-            {/* INLINE STİLİ KALDIRIP SADECE SINIF KULLANIYORUZ */}
-            <div className="hero-image-wrapper"> {/* Yeni bir sınıf eklendi */}
+          
+            <div className="hero-image-wrapper"> 
               <Image
                 src="/giris.png"
                 alt="Giriş Sayfası Görseli"
