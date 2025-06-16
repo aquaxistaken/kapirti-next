@@ -1341,22 +1341,23 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
   width: 100%;
 }
 
-/* === HERO SECTION – GÖRSEL VE METİN YAN YANA === */
+/* === HERO SECTION – SAĞDA GÖRSEL, SOLDa METİN === */
 .hero-section {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
-  padding: var(--spacing-xl) var(--spacing-md);
-  gap: var(--spacing-lg);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xxl) var(--spacing-md);
   background: linear-gradient(135deg, var(--bg-hero-gradient-start), var(--bg-hero-gradient-end));
   border-bottom-left-radius: var(--border-radius-lg);
   border-bottom-right-radius: var(--border-radius-lg);
 }
 
 .hero-content {
-  flex: 1 1 50%;
+  flex: 1 1 500px;
   max-width: 600px;
+  text-align: left;
 }
 
 .hero-content h1 {
@@ -1372,26 +1373,26 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
 }
 
 .hero-buttons {
-  margin-top: var(--spacing-md);
   display: flex;
   gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
 }
 
 .hero-subtext {
-  margin-top: var(--spacing-sm);
   font-size: var(--font-size-small);
   color: var(--text-color-light);
+  margin-top: var(--spacing-sm);
 }
 
 .hero-ad-card {
-  flex: 1 1 40%;
-  max-width: 500px;
+  flex: 1 1 400px;
+  max-width: 450px;
 }
 
 .hero-image-wrapper {
-  position: relative;
   width: 100%;
   aspect-ratio: 9 / 16;
+  position: relative;
   border-radius: var(--border-radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-medium);
@@ -1402,35 +1403,37 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
   object-position: center;
 }
 
-/* === KAPIRTI NEDİR – GÖRSEL SAĞDA === */
+/* === KAPIRTI NEDİR – SOL METİN, SAĞDA TELEFON MOCKUP === */
 .kapirti-nedir-section .content-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--spacing-lg);
+  justify-content: center;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-lg);
 }
 
 .kapirti-nedir-section .text-content {
-  flex: 1;
+  flex: 1 1 500px;
+  max-width: 600px;
   text-align: left;
   padding-right: var(--spacing-lg);
 }
 
 .kapirti-nedir-section .image-gallery {
-  flex: 1;
-  max-width: 500px;
+  flex: 1 1 400px;
+  max-width: 450px;
 }
 
 .kapirti-nedir-image-wrapper {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 9 / 16;
   border-radius: var(--border-radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-medium);
 }
 
-/* === MOBİL GÖRÜNÜM === */
+/* === MOBİL DÜZEN === */
 @media (max-width: 768px) {
   .hero-section,
   .kapirti-nedir-section .content-wrapper {
@@ -1441,8 +1444,13 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
   .hero-content,
   .kapirti-nedir-section .text-content {
     max-width: 100%;
-    padding: 0;
     text-align: center;
+    padding: 0;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .hero-ad-card,
@@ -1450,8 +1458,10 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
     max-width: 100%;
   }
 
-  .hero-buttons {
-    justify-content: center;
-    flex-wrap: wrap;
+  .hero-image-wrapper,
+  .kapirti-nedir-image-wrapper {
+    aspect-ratio: 9 / 16;
+    width: 100%;
+    margin: 0 auto;
   }
 }
