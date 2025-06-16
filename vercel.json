@@ -1,8 +1,10 @@
 {
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/restoran/:uid/menu",
-      "destination": "https://your-qr-app.vercel.app/restoran/:uid/menu"
+      "source": "/restoran/:match*",
+      "destination": "https://your-qr-app.vercel.app/restoran/:match*",
+      "permanent": false
     }
   ]
 }
+
