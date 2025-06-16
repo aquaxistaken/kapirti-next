@@ -235,8 +235,6 @@ p {
     max-width: 950px;
     margin-top: var(--spacing-lg);
     background: linear-gradient(135deg, var(--bg-hero-gradient-start) 0%, var(--bg-hero-gradient-end) 100%);
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-medium);
     overflow: hidden;
     padding: var(--spacing-sm);
     color: var(--white);
