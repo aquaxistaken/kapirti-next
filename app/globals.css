@@ -924,6 +924,92 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
   }
 }
 
+/* Genel Responsive İyileştirmeler */
+.container {
+    max-width: 1280px; /* Bu max-width'i daha büyük ekranlar için koruyun */
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    overflow: hidden; /* Taşmayı engeller */
+}
+
+/* Küçük ekranlarda hero section esnekliğini ayarlama */
+@media (max-width: 1010px) { /* 1010px'e kadar olan boşluk için hedef */
+    .hero-section {
+        /* Eğer bu aralıkta sağa taşma oluyorsa */
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm); /* Daha güvenli bir padding deneyin */
+        gap: var(--spacing-md); /* Belki daha küçük bir gap */
+    }
+
+    .hero-content, .hero-ad-card {
+        flex-basis: auto; /* Esnekliklerini otomatikye bırakın */
+        max-width: 100%; /* Kapsayıcının %100'ünü kaplasınlar */
+    }
+
+    /* Görsel sarmalayıcıları için daha sıkı kontrol */
+    .hero-image-wrapper,
+    .kapirti-nedir-image-wrapper,
+    .how-it-works-image-wrapper,
+    .testimonial-main-image-wrapper {
+        width: calc(100% - (var(--spacing-md) * 2)); /* Container padding'ini hesaba kat */
+        margin-left: auto;
+        margin-right: auto;
+        /* Veya sadece max-width'i düşürün: */
+        max-width: 600px; /* Bu aralık için daha uygun bir max-width */
+    }
+
+    .how-it-works-image-wrapper,
+    .testimonial-main-image-wrapper {
+        height: 450px; /* Bu aralıkta belki daha az yükseklik */
+    }
+
+}
+
+
+/* 768px altındaki ekranlar için mevcut kurallarınız */
+@media (max-width: 768px) {
+    .hero-image-wrapper {
+      height: 250px;
+      max-width: 100%; /* Emin olmak için */
+    }
+    .kapirti-nedir-image-wrapper {
+        height: 250px;
+        max-width: 100%; /* Emin olmak için */
+    }
+    .how-it-works-image-wrapper {
+      height: 350px;
+      max-width: 100%; /* Emin olmak için */
+    }
+    .testimonial-main-image-wrapper {
+      height: 350px;
+      max-width: 100%; /* Emin olmak için */
+    }
+    .restaurant-logo-wrapper {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+  .hero-image-wrapper {
+    height: 200px;
+  }
+  .kapirti-nedir-image-wrapper {
+      height: 200px;
+  }
+  .how-it-works-image-wrapper {
+    height: 280px;
+  }
+  .testimonial-main-image-wrapper {
+    height: 280px;
+  }
+  .restaurant-logo-wrapper {
+      width: 60px;
+      height: 60px;
+  }
+}
+
+
 /* Responsive Adjustments for FAQ */
 @media (max-width: 768px) {
     .faq-section {
