@@ -316,6 +316,24 @@ p {
 }
 
 /* Hero Image Stili (Kaldırıldı, https://kapirti-eight.vercel.app/ ile uyumlu değil) */
+/* Next.js Image için yeni stiller */
+.hero-image-wrapper {
+  position: relative; /* fill prop'u için MUTLAKA relative olmalı */
+  width: 100%; /* Kapsayıcı div'in genişliği */
+  height: 350px; /* Görselin yüksekliği, responsive ayarlayın */
+  overflow: hidden; /* Taşmayı engellemek için */
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-medium);
+  max-width: 500px; /* Hero section için uygun bir max-width */
+  margin: 0 auto; /* Eğer flex konteynerde değilse ortalamak için */
+}
+
+.hero-main-image {
+  object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır */
+  /* object-fit: cover; // Eğer kapsayıcıyı doldurmasını ve kesilmesini isterseniz deneyin */
+  /* object-position: center; // Varsayılan, gerekirse değiştirebilirsiniz */
+}
+
 
 /* Responsive Adjustments (for screens above 768px) */
 @media (min-width: 768px) {
@@ -418,6 +436,9 @@ p {
     padding: var(--spacing-sm);
 }
 
+/* Bu kısım artık direkt img etiketi kullanmadığınız için geçerli değildir,
+   eğer buraya Next.js Image eklerseniz, Image sarmalayıcı ve Image stilini
+   yukarıdaki gibi oluşturmanız gerekir.
 .kapirti-nedir-section .image-gallery img {
     width: 100%;
     height: auto;
@@ -432,6 +453,7 @@ p {
     transform: scale(1.02);
     box-shadow: var(--shadow-strong);
 }
+*/
 
 /* Kapırtı Nedir Section Responsive Adjustments */
 @media (min-width: 768px) {
@@ -603,22 +625,20 @@ p {
     line-height: 1.7;
 }
 
-.how-it-works-image {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: var(--spacing-sm);
+/* How It Works Section - Image Wrapper */
+.how-it-works-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px; /* Resmin yüksekliğini kontrol edin */
+  max-width: 900px; /* .how-it-works-image div'inin max-width'i ile aynı */
+  margin: var(--spacing-xl) auto; /* Ortalamak ve üst/alt boşluk vermek için */
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-strong);
 }
 
-.how-it-works-image img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-strong);
-    transition: transform var(--transition-speed) ease;
-}
-
-.how-it-works-image img:hover {
-    transform: scale(1.005);
+.how-it-works-main-image {
+  object-fit: cover; /* Bu resim için cover daha iyi olabilir */
 }
 
 /* How It Works Section Responsive Adjustments */
@@ -701,17 +721,21 @@ p {
     box-shadow: var(--shadow-medium);
 }
 
-.restaurant-logo {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: var(--spacing-sm);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0;
-    position: relative;
-    z-index: 1;
+/* Restaurant Logo Wrapper */
+.restaurant-logo-wrapper {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto var(--spacing-sm) auto; /* Ortalamak ve alt boşluk vermek için */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+
+.restaurant-logo { /* Image bileşenine uygulanan sınıf */
+    object-fit: cover; /* Logolar için genellikle cover daha iyidir */
+}
+
 
 .testimonial-card blockquote {
     font-size: 1.15em;
@@ -735,23 +759,22 @@ p {
     z-index: 1;
 }
 
-.testimonial-main-image {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: var(--spacing-sm);
+/* Testimonial Main Image Wrapper */
+.testimonial-main-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px; /* Resmin yüksekliğini kontrol edin */
+  max-width: 1000px; /* .testimonial-main-image div'inin max-width'i ile aynı */
+  margin: var(--spacing-xl) auto; /* Ortalamak ve üst/alt boşluk vermek için */
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-strong);
 }
 
-.testimonial-main-image img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-strong);
-    transition: transform var(--transition-speed) ease;
+.testimonial-full-image {
+  object-fit: cover; /* Bu resim için cover genellikle daha iyi durur */
 }
 
-.testimonial-main-image img:hover {
-    transform: scale(1.005);
-}
 
 /* ==================================== */
 /* Frequently Asked Questions (FAQ) Section Styles */
@@ -841,7 +864,40 @@ p {
     line-height: 1.7;
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments for Images (eklendi) */
+@media (max-width: 768px) {
+  .hero-image-wrapper {
+    height: 250px; /* Küçük ekranlar için Hero görsel yüksekliği */
+  }
+  .how-it-works-image-wrapper {
+    height: 350px; /* Küçük ekranlar için Nasıl Çalışır görsel yüksekliği */
+  }
+  .testimonial-main-image-wrapper {
+    height: 350px; /* Küçük ekranlar için Testimonial ana görsel yüksekliği */
+  }
+  .restaurant-logo-wrapper {
+      width: 70px;
+      height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image-wrapper {
+    height: 200px; /* Daha küçük ekranlar için Hero görsel yüksekliği */
+  }
+  .how-it-works-image-wrapper {
+    height: 280px; /* Daha küçük ekranlar için Nasıl Çalışır görsel yüksekliği */
+  }
+  .testimonial-main-image-wrapper {
+    height: 280px; /* Daha küçük ekranlar için Testimonial ana görsel yüksekliği */
+  }
+  .restaurant-logo-wrapper {
+      width: 60px;
+      height: 60px;
+  }
+}
+
+/* Responsive Adjustments for FAQ */
 @media (max-width: 768px) {
     .faq-section {
         padding: var(--spacing-lg) var(--spacing-xs);

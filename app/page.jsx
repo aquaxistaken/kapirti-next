@@ -2,17 +2,15 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image'; // Next.js Image bileşeni için import
+import Image from 'next/image';
 
 export default function Home() {
   const [activeFaq, setActiveFaq] = useState(null);
 
-  // FAQ Toggle Fonksiyonu
   const toggleFaq = (index) => {
-    setActiveFaq(activeFaq === index ? null : index); // Buradaki yazım hatası düzeltildi!
+    setActiveFaq(activeFaq === index ? null : index);
   };
 
-  // Hero Animasyonu
   useEffect(() => {
     const heroContent = document.querySelector('.hero-content');
     if (heroContent) {
@@ -20,7 +18,6 @@ export default function Home() {
     }
   }, []);
 
-  // FAQ Verileri
   const faqs = [
     { q: 'Kapırtı’yı kullanmak ücretli mi?', a: 'Hayır, tüm temel özellikler tamamen ücretsizdir.' },
     { q: 'Menüleri kim çeviriyor?', a: 'Uygulama çevirileri otomatik yapar, dil algılamasıyla turistlere doğru dilde gösterir.' },
@@ -41,23 +38,22 @@ export default function Home() {
             </div>
             <p className="hero-subtext">Kapırtı ile menünüzü dijitalleştirin, görsellerle ve 170 dilde herkese ulaştırın. Üstelik tamamen ücretsiz!</p>
           </div>
-          {/* Buradaki birleşme çakışması çözüldü. Sadece görsel bırakıldı. */}
           <div className="hero-ad-card">
-            {/* Next.js Image kullanımı iyileştirildi */}
-            <div style={{ position: 'relative', width: '100%', height: '300px' /* veya istediğiniz boyutlar */ }}>
+            {/* INLINE STİLİ KALDIRIP SADECE SINIF KULLANIYORUZ */}
+            <div className="hero-image-wrapper"> {/* Yeni bir sınıf eklendi */}
               <Image
-                src="/giris.png" // Public klasöründeki resmin yolu
+                src="/giris.png"
                 alt="Giriş Sayfası Görseli"
-                fill // Resmin üst elemanı doldurmasını sağlar
-                className="hero-image" // CSS için sınıf, object-fit ve diğer stil tanımları burada olmalı
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Responsive için boyut ipuçları
+                fill
+                className="hero-main-image" // Bu sınıfa object-fit vb. stiller verilecek
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Kapırtı Nedir Section */}
+      {/* Kapırtı Nedir Section - Bu bölümde görsel yoktu, eklenmedi. */}
       <section className="kapirti-nedir-section" id="kapirti-nedir">
         <div className="container">
           <h2>İşletmenizin Yeni Dijital Vitrini</h2>
@@ -142,9 +138,9 @@ export default function Home() {
             </div>
           </div>
           <div className="how-it-works-image">
-            {/* Next.js Image kullanımı iyileştirildi */}
-            <div style={{ position: 'relative', width: '100%', height: '600px' /* veya istediğiniz boyutlar */ }}>
-              <Image src="/photo2.png" alt="Nasıl Çalışır Görseli" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw" />
+            {/* INLINE STİLİ KALDIRIP SADECE SINIF KULLANIYORUZ */}
+            <div className="how-it-works-image-wrapper"> {/* Yeni bir sınıf eklendi */}
+              <Image src="/photo2.png" alt="Nasıl Çalışır Görseli" fill className="how-it-works-main-image" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw" />
             </div>
           </div>
         </div>
@@ -157,24 +153,24 @@ export default function Home() {
           <p className="section-description">Türkiye’den Tayland’a, Kapırtı’yı kullanan işletmelerin yorumları ve başarı hikayeleri.</p>
           <div className="testimonials-grid">
             <div className="testimonial-card">
-              {/* img yerine Next.js Image kullanımı iyileştirildi */}
-              <div style={{ position: 'relative', width: '90px', height: '90px', margin: '0 auto 15px' }}>
+              {/* INLINE STİLİ KALDIRIP SADECE SINIF KULLANIYORUZ */}
+              <div className="restaurant-logo-wrapper"> {/* Yeni bir sınıf eklendi */}
                 <Image src="/restoran1.webp" alt="Lezzetli Durak Logosu" className="restaurant-logo" fill sizes="90px" />
               </div>
               <blockquote>"Kapırtı sayesinde menümüzü güncel tutmak çok kolaylaştı ve yabancı müşterilerimizden harika geri dönüşler alıyoruz. Gerçekten işimizi büyüttü!"</blockquote>
               <span className="author">- Ayşe Yılmaz, Lezzetli Durak Restoranı Sahibi</span>
             </div>
             <div className="testimonial-card">
-              {/* img yerine Next.js Image kullanımı iyileştirildi */}
-              <div style={{ position: 'relative', width: '90px', height: '90px', margin: '0 auto 15px' }}>
+              {/* INLINE STİLİ KALDIRIP SADECE SINIF KULLANIYORUZ */}
+              <div className="restaurant-logo-wrapper"> {/* Yeni bir sınıf eklendi */}
                 <Image src="/restoran2.webp" alt="Şehrin Tadı Logosu" className="restaurant-logo" fill sizes="90px" />
               </div>
               <blockquote>"Dijital menüye geçmek istediğimizde Kapırtı en hızlı ve ücretsiz çözüm oldu. Menüye fotoğraf ekleme özelliği sayesinde satışlarımız arttı."</blockquote>
               <span className="author">- Mehmet Demir, Şehrin Tadı Cafe Yöneticisi</span>
             </div>
             <div className="testimonial-card">
-              {/* img yerine Next.js Image kullanımı iyileştirildi */}
-              <div style={{ position: 'relative', width: '90px', height: '90px', margin: '0 auto 15px' }}>
+              {/* INLINE STİLİ KALDIRIP SADECE SINIF KULLANIYORUZ */}
+              <div className="restaurant-logo-wrapper"> {/* Yeni bir sınıf eklendi */}
                 <Image src="/restoran3.jpeg" alt="Deniz Manzarası Logosu" className="restaurant-logo" fill sizes="90px" />
               </div>
               <blockquote>"Özellikle turistik bölgemiz için çok dilli menü olmazsa olmazdı. Kapırtı bu ihtiyacımızı mükemmel bir şekilde karşıladı."</blockquote>
@@ -182,9 +178,9 @@ export default function Home() {
             </div>
           </div>
           <div className="testimonial-main-image">
-            {/* Next.js Image kullanımı iyileştirildi */}
-            <div style={{ position: 'relative', width: '100%', height: '600px' /* veya istediğiniz boyutlar */ }}>
-              <Image src="/photo1.png" alt="Testimonials Görseli" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw" />
+            {/* INLINE STİLİ KALDIRIP SADECE SINIF KULLANIYORUZ */}
+            <div className="testimonial-main-image-wrapper"> {/* Yeni bir sınıf eklendi */}
+              <Image src="/photo1.png" alt="Testimonials Görseli" fill className="testimonial-full-image" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw" />
             </div>
           </div>
         </div>
