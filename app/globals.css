@@ -1310,3 +1310,33 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
         align-items: center;
     }
 }
+
+/* === FIX: Görsel sarmalayıcılar responsive taşma önlemesi === */
+.hero-image-wrapper,
+.kapirti-nedir-image-wrapper,
+.how-it-works-image-wrapper,
+.testimonial-main-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* === FIX: .container için taşmayı önleyici güvenlik ayarı === */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* === FIX: Ana sarıcı için opsiyonel sınıf === */
+.page-wrapper {
+  overflow-x: hidden;
+  width: 100%;
+}
