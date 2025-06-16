@@ -1341,73 +1341,60 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
   width: 100%;
 }
 
-/* === HERO SECTION – KAPIRTI EIGHT STİLİNDE PROFESYONEL DÜZENLEME === */
-
+/* === HERO SECTION – GÖRSEL VE METİN YAN YANA === */
 .hero-section {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding: var(--spacing-xl) var(--spacing-md);
   gap: var(--spacing-lg);
   background: linear-gradient(135deg, var(--bg-hero-gradient-start), var(--bg-hero-gradient-end));
   border-bottom-left-radius: var(--border-radius-lg);
   border-bottom-right-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-soft);
-  overflow: hidden;
 }
 
 .hero-content {
-  flex: 1 1 400px;
+  flex: 1 1 50%;
   max-width: 600px;
-  z-index: 1;
-  position: relative;
-  text-align: left;
-  margin: 0 auto;
 }
 
 .hero-content h1 {
   font-size: var(--font-size-h1);
   font-weight: 800;
   color: var(--secondary-color);
-  letter-spacing: -0.5px;
   margin-bottom: var(--spacing-sm);
-  text-align: inherit;
 }
 
 .hero-content p {
   font-size: var(--font-size-p);
   color: var(--text-color-light);
-  margin-bottom: var(--spacing-md);
-}
-
-.hero-subtext {
-  font-size: var(--font-size-small);
-  color: var(--text-color-light);
-  margin-top: var(--spacing-sm);
 }
 
 .hero-buttons {
+  margin-top: var(--spacing-md);
   display: flex;
-  flex-wrap: wrap;
   gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-sm);
+}
+
+.hero-subtext {
+  margin-top: var(--spacing-sm);
+  font-size: var(--font-size-small);
+  color: var(--text-color-light);
 }
 
 .hero-ad-card {
-  flex: 1 1 400px;
-  max-width: 650px;
-  margin: 0 auto;
+  flex: 1 1 40%;
+  max-width: 500px;
 }
 
 .hero-image-wrapper {
   position: relative;
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--border-radius-md);
   overflow: hidden;
-  box-shadow: none;
-  border-radius: 0;
+  box-shadow: var(--shadow-medium);
 }
 
 .hero-main-image {
@@ -1415,38 +1402,56 @@ object-fit: contain; /* Resmin en boy oranını koruyarak kutuya sığdırır, b
   object-position: center;
 }
 
-/* === Mobil görünüm için düzenleme === */
-@media (max-width: 767px) {
-  .hero-section {
+/* === KAPIRTI NEDİR – GÖRSEL SAĞDA === */
+.kapirti-nedir-section .content-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+}
+
+.kapirti-nedir-section .text-content {
+  flex: 1;
+  text-align: left;
+  padding-right: var(--spacing-lg);
+}
+
+.kapirti-nedir-section .image-gallery {
+  flex: 1;
+  max-width: 500px;
+}
+
+.kapirti-nedir-image-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+}
+
+/* === MOBİL GÖRÜNÜM === */
+@media (max-width: 768px) {
+  .hero-section,
+  .kapirti-nedir-section .content-wrapper {
     flex-direction: column;
-    padding: var(--spacing-lg) var(--spacing-sm);
     text-align: center;
   }
 
-  .hero-content {
+  .hero-content,
+  .kapirti-nedir-section .text-content {
     max-width: 100%;
+    padding: 0;
     text-align: center;
-    margin: 0 auto var(--spacing-md);
   }
 
-  .hero-content h1,
-  .hero-content p,
-  .hero-subtext {
-    text-align: center;
+  .hero-ad-card,
+  .kapirti-nedir-section .image-gallery {
+    max-width: 100%;
   }
 
   .hero-buttons {
     justify-content: center;
-  }
-
-  .hero-ad-card {
-    max-width: 100%;
-  }
-
-  .hero-image-wrapper {
-    max-width: 100%;
-    margin: 0 auto;
-    height: auto;
-    aspect-ratio: 16 / 9;
+    flex-wrap: wrap;
   }
 }
