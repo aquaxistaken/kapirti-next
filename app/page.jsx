@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from 'next/image'; // Next.js Image bileşeni için import
 
 export default function Home() {
   const [activeFaq, setActiveFaq] = useState(null);
 
   // FAQ Toggle Fonksiyonu
   const toggleFaq = (index) => {
-    setActiveFaq(activeFaq === index ? null : index);
+    setActiveFai(activeFaq === index ? null : index);
   };
 
   // Hero Animasyonu
@@ -39,9 +39,17 @@ export default function Home() {
             </div>
             <p className="hero-subtext">Kapırtı ile menünüzü dijitalleştirin, görsellerle ve 170 dilde herkese ulaştırın. Üstelik tamamen ücretsiz!</p>
           </div>
+          {/* Buradaki birleşme çakışması çözüldü. Sadece görsel bırakıldı. */}
           <div className="hero-ad-card">
-          <img src="giris.png" alt="" />
-           
+            <Image
+              src="/giris.png" // Public klasöründeki resmin yolu
+              alt="Giriş Sayfası Görseli"
+              layout="responsive" // Next.js 13+ için 'fill' veya CSS ile boyutlandırma daha yaygın olsa da, 'responsive' de hala çalışır.
+              width={500} // Resmin orijinal genişliğini veya yaklaşığını girin
+              height={300} // Resmin orijinal yüksekliğini veya yaklaşığını girin
+              objectFit="contain" // Resmin oranlarını koruyarak alanı kaplamasını sağlar
+              className="hero-image" // CSS için sınıf
+            />
           </div>
         </div>
       </section>
@@ -64,7 +72,6 @@ export default function Home() {
                   <li><span className="star-icon">⭐</span> Bilinirlik Artışı</li>
                   <li><span className="ticket-icon">🎟️</span> Elite Keyfini Ömür Boyu Yaşat</li>
                 </ul>
-                
               </div>
             </div>
           </div>
@@ -104,7 +111,7 @@ export default function Home() {
             <div className="feature-card">
               <span className="feature-icon">💸</span>
               <h3>Tamamen Ücretsiz</h3>
-              <p>Kapırtı\'ya ücretsiz kayıt olun, tüm temel özelliklerden faydalanmaya hemen başlayın.</p>
+              <p>Kapırtı'ya ücretsiz kayıt olun, tüm temel özelliklerden faydalanmaya hemen başlayın.</p>
             </div>
           </div>
         </div>
@@ -242,7 +249,6 @@ export default function Home() {
         </div>
         <div className="footer-bottom">
           <p>© 2025 Kapırtı. Tüm hakları saklıdır.</p>
-
         </div>
       </footer>
     </div>
